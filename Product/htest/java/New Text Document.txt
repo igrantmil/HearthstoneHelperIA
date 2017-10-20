@@ -1,0 +1,21 @@
+    public static void main( String[] args )
+    {
+    	try {
+    		HttpResponse<JsonNode> response = Unirest.get("https://omgvamp-hearthstone-v1.p.mashape.com/cards?collectible=1")
+    				.header("X-Mashape-Key", "tL8NdfGtrEmshv1RnDLl4zqeFOAPp161yNYjsnQENIXk0HPFoE")
+    				.asJson();
+    	JSONObject test= new JSONObject(response);
+		JSONArray atest = test.names();
+		for(int i = 0 ; i < atest.length() ; i++){
+		   String a= atest.getString(i);
+		    System.out.println(a);	 
+		}
+		} catch (UnirestException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+    	
+
+    }
+}
